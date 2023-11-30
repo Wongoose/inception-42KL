@@ -1,0 +1,1 @@
+docker run -d -p 9000:80 wordpress
