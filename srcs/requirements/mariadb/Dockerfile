@@ -1,7 +1,7 @@
 FROM debian:buster
 
 RUN apt-get update
-RUN apt-get install -y mariadb-server mariadb-client vim mysql-server
+RUN apt-get install -y mariadb-server mariadb-client vim
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /var/run/mysqld \
@@ -10,9 +10,9 @@ RUN mkdir -p /var/run/mysqld \
 
 EXPOSE 3306
 
-#COPY		./conf/mysqld.conf ~/my.cnf
-#COPY		./conf/mysqld.conf /etc/mysql/my.cnf
-#COPY		./conf/mysqld.conf /etc/my.cnf
+COPY		./conf/mysqld.conf ~/my.cnf
+COPY		./conf/mysqld.conf /etc/mysql/my.cnf
+COPY		./conf/mysqld.conf /etc/my.cnf
 
 
 #Copy of the .sh and .sql in the /bin of the container to be able to run the program
