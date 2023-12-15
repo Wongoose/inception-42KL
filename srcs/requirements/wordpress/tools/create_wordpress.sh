@@ -14,6 +14,8 @@ else
     rm -rf latest.tar.gz
     rm -rf wordpress
 
+    chown -R www-data:root /var/www/html
+
     echo "BEFORE SED CHECKPOINT -----"
     #Inport env variables in the config file
     sed -i "s/username_here/$DB_USER/g" wp-config-sample.php

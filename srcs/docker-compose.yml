@@ -10,7 +10,7 @@ services:
     env_file:
       - .env
     ports:
-      - 9000:9000
+      - "9000:9000"
     volumes:
       - wordpress_data:/var/www/html
     restart: always
@@ -23,7 +23,7 @@ services:
       - wordpress
     build: ./requirements/nginx
     ports:
-      - 443:443
+      - "443:443"
     # volumes are independent file system used for persistent data storage across multiple containers 
     volumes:
     # data is in html type
@@ -42,7 +42,7 @@ services:
     env_file:
       - .env
     ports:
-      - 3306:3306
+      - "3306:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
     restart: always
@@ -55,14 +55,14 @@ volumes:
     driver_opts:
       type: none
       # must be in home/zwong/data @ iMac
-      device: /Users/wongzx/GIT-42KL/inception/srcs/data/wordpress
+      device: /home/zwong/data/wordpress
       o: bind
   mariadb_data:
     driver: local
     driver_opts:
       type: none
       # must be in home/zwong/data @ iMac
-      device: /Users/wongzx/GIT-42KL/inception/srcs/data/mysql
+      device: /home/zwong/data/mysql
       o: bind
 
 networks:

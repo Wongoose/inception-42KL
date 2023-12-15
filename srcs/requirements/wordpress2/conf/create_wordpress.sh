@@ -5,6 +5,7 @@ then
 	echo "wordpress already downloaded"
 else
 	echo "CREATING $DB_NAME"
+	chown -R www-data:root /var/www/html
 	wp config create --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PSWD --dbhost=$DB_HOST --dbcharset="utf8" --dbcollate="utf8_general_ci" --allow-root
 	echo "CHECKPOINT 1"
 	wp config set WP_DEBUG true --allow-root

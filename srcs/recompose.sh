@@ -1,11 +1,10 @@
-docker rm -f $(docker ps -aq)
-docker image prune -f
-docker system prune -a --volumes
+sudo docker rm -f $(sudo docker ps -aq)
+sudo docker image prune -f
+#sudo docker system prune -a --volumes
 
-rm -rf data/mysql
-rm -rf data/wordpress
+sudo rm -rf /home/zwong/data/mysql
+sudo rm -rf /home/zwong/data/wordpress
 
-mkdir data/mysql
-mkdir data/wordpress
+mkdir /home/zwong/data/mysql
+mkdir /home/zwong/data/wordpress
 
-docker compose up
