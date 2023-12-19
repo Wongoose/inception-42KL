@@ -10,6 +10,7 @@ else
 		CREATE DATABASE IF NOT EXISTS $DB_NAME;
 		GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%' IDENTIFIED BY '$DB_PSWD';
 		GRANT ALL PRIVILEGES ON $DB_NAME.* TO 'root' IDENTIFIED BY '$DB_ROOT_PSWD';
+		ALTER USER 'root'@'localhost' IDENTIFIED BY '$DB_ROOT_PSWD';
 		FLUSH PRIVILEGES;" > /usr/local/bin/init.sql
 	mysqld --user=mysql --bootstrap < /usr/local/bin/init.sql
 fi
